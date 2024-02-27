@@ -1,0 +1,454 @@
+/**
+1.0 - Generalization
+2.0 - Layout
+3.0 - Page Design
+
+update : 2024-02-22
+*/
+
+/*------------------------------------------
+    1.0     Generalization
+ ------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    vertical-align: baseline;
+    background-repeat: no-repeat;
+    color: #333;
+    word-break: break-word;
+    font-family: "NotoSansKR", AppleSDGothic, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -.02em;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    font-size-adjust: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: ease .5s;
+}
+
+*:after,
+*:before {
+    position: absolute;
+}
+
+html,
+body {
+    max-width: 100%;
+    min-width: 1600px;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    font-size: 1rem;
+}
+body > * {
+    min-width: 1600px;
+}
+a, img, span, em, strong, label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    font-size: 0;
+}
+
+h2 {
+    font-size: 5rem;
+    margin-bottom: 40px;
+}
+
+input, textarea {
+    display: block;
+    width: 100%;
+    margin: 1.5rem 0;
+    font-size: 1.6rem;
+    padding: 1rem;
+    border: .1rem solid #e0e0e0;
+}
+
+input:focus, textarea:focus {
+    outline: 1px solid #61662c;
+}
+
+/*------------------------------------------
+    2.0     Layout
+ ------------------------------------------*/
+/* 2.0.0 -  Common */
+body > * {
+    padding: 0 100px;
+}
+
+.loading {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #1E3932;
+    z-index: 20;
+    opacity: 1;
+    transition: .5s ease;
+}
+
+.loading img {
+    max-width: 300px;
+}
+
+/* 2.1 -  Header */
+header {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    z-index: 10;
+}
+
+header.fixed {
+    position: fixed;
+    height: 80px;
+    background: #1E3932;
+    box-shadow: 0 0 20px #016241;
+}
+
+header.fixed .logo {
+    width: 50px;
+    height: 50px;
+}
+
+header .logo {
+    width: 65px;
+    height: 65px;
+}
+
+header .gnb {
+    display: flex;
+}
+
+header li {
+    display: inline-block;
+    color: #fff;
+    margin-left: 60px;
+}
+
+header li a {
+    width: 75px;
+    color: inherit;
+    font-size: 1rem;
+    text-align: center;
+}
+
+header li a:hover {
+    transform: scale(1.1);
+    font-weight: bold;
+    transition: transform .3s ease;
+}
+
+header button {
+    position: relative;
+    width: 30px;
+    background: none;
+}
+
+header strong {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+header span {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: calc(50% - .5px);
+    left: 0;
+    border-radius: 5px;
+    background: #fff;
+}
+
+header span:first-of-type {
+    top: 0;
+}
+
+header span:last-of-type {
+    top: auto;
+    bottom: 0;
+}
+
+/* 2.2 - page */
+section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* 2.3 - Footer */
+footer {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    text-align: center;
+    background: #333333;
+}
+
+footer p {
+    width: 100%;
+    color: #fff;
+}
+
+/*------------------------------------------
+    3.0     Page Design
+ ------------------------------------------*/
+/* 3.0 -  Common */
+.title {
+    width: 700px;
+}
+
+.title p {
+    line-height: 30px;
+}
+
+/* 3.1 -  Home */
+.home {
+    position: relative;
+    height: 100vh;
+    background: #1E3932;
+    overflow: hidden;
+}
+
+.home::before {
+    content: "";
+    width: 1188px;
+    height: 1188px;
+    top: 30px;
+    left: 40px;
+    background: #016241;
+    border-radius: 50%;
+}
+
+.home .title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+}
+
+.home .title * {
+    color: #fff;
+}
+
+.home .title h2:after {
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: middle;
+    content: '';
+    background: #FFF;
+    width: 2px;
+    height: 106px;
+    animation: blink infinite .8s;
+}
+
+/* 3.2 -  AboutMe */
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1500px;
+}
+
+.on.about > *:not(.photo) {
+    opacity: 1;
+}
+
+.on .photo {
+    left: -594px;
+    opacity: .5;
+}
+
+.on .skillBox {
+    transform: translateX(0);
+}
+
+.about > * {
+    opacity: 0;
+}
+
+.photo {
+    position: absolute;
+    width: 1188px;
+    height: 1188px;
+    top: calc(50% - 594px);
+    left: -1188px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.photo img {
+    height: 100%;
+    transform: translateX(300px);
+
+}
+
+.about .title {
+    top: 200px;
+    left: 20%;
+}
+
+.about .title * {
+    color: #016241;
+}
+
+.skillBox {
+    width: 700px;
+    transform: translateX(500px);
+}
+
+.skillBox ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: space-between;
+    font-size: 0;
+}
+
+.skillBox li {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background: gray;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* 3.3 -  Work */
+.work {
+    padding: 0;
+}
+
+.flex {
+    cursor: pointer;
+    margin: 0 auto;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.flex div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+    flex-grow: 1;
+    transition: flex-grow 0.5s ease-in-out;
+    background: rgba(1, 98, 65, 1);
+}
+
+.flex div:hover {
+    flex-grow: 2 !important;
+    transition: flex-grow 0.5s ease-in-out;
+}
+
+.flex div:nth-child(1) {
+    background: rgba(1, 98, 65, .3);
+}
+
+.flex div:nth-child(2) {
+    background: rgba(1, 98, 65, .5);
+}
+
+.flex div:nth-child(3) {
+    background: rgba(1, 98, 65, .8);
+}
+
+.flex div:nth-child(4) {
+    background: rgba(1, 98, 65, 1);
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 2.5rem;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+}
+
+.overlay h1 {
+    color: #fff
+}
+
+/* 3.4 -  Contact */
+.contact {
+    padding: 100px;
+}
+
+/* 3.5 -  기타 애니메이션 등등 */
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+

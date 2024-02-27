@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제-포폴</title>
+    <link rel="stylesheet" href="resource/css/style.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script src="resource/js/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            //contact영역 email js 설정
+            emailjs.init("NQfzYiLADSE5y9df5");
+            $('input[name=submit]').click(function () {
+                var templateParams = {
+                    name: $('input[name=name]').val(),
+                    phone: $('input[name=phone]').val(),
+                    email: $('input[name=email]').val(),
+                    message: $('textarea[name=message]').val()
+                };
+                emailjs.send('gmail', 'template_foqid9g', templateParams)
+                    .then(function (response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        })
+    </script>
+</head>
+<body>
+<audio id="typingSound" src="resource/images/typingSound.mp3"></audio>
+<div class="loading"><img src="resource/images/loadding.gif" alt="페이지 로딩시 보여지는 (고양이가 열심히 노트북을 두들기고 있는 움직이는)이미지 gif파일">
+</div>
+<header>
+    <h1 class="logo"><a href="#"><img src="resource/images/logo.png" alt="로고 이미지 파일"></a></h1>
+    <nav class="gnb">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button style="display: none">
+            <strong>메뉴 버튼</strong>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
+<section id="home" class="home">
+    <div class="title">
+        <h2></h2>
+        <p>
+            Hello, Welcome My PortFolio Site. I am a novice developer who wants to become a good developer. Have a Nice
+            Day! [ PC 사이즈 고정 (반응형X) ]
+        </p>
+    </div>
+</section>
+<section id="about" class="about">
+    <div class="photo"><img src="resource/images/about_img.jpg" alt="자기소개 사진 예시 이미지"></div>
+    <div class="title">
+        <h2>About<br>ddalla</h2>
+        <p>
+            빛나는 아이디어를 코드로 옮겨 현실로 만들어내고 싶은 초보개발자입니다.<br>
+            도전을 즐기며 다양한 기술을 탐구하고, 그것을 문제 해결에 적용합니다.<br>
+            팀원들과의 협업과 의사소통을 중시하며, 함께 더 나은 결과물을 창출하는 것에 자부심을 느낍니다.<br>
+            사용자 중심의 솔루션을 고민하고, 최적의 경로를 모색하는 것이 제 지향점입니다.<br>
+            문제 해결력과 창의성을 바탕으로 혁신적인 소프트웨어를 개발하는 것을 희열로 여깁니다.<br>
+            또한, 지식 공유와 지속적인 학습을 통해 더 나은 개발자로成장하기 위해 노력하고 있습니다.<br>
+            함께하면 더 나은 세상을 만들어갈 수 있다고 믿습니다.</p>
+    </div>
+    <div class="skillBox">
+        <ul>
+            <li><img src="resource/images/skill_1.png" alt=""></li>
+            <li><img src="resource/images/skill_2.png" alt=""></li>
+            <li><img src="resource/images/skill_3.png" alt=""></li>
+            <li><img src="resource/images/skill_4.png" alt=""></li>
+            <li><img src="resource/images/skill_5.png" alt=""></li>
+            <li><img src="resource/images/skill_6.png" alt=""></li>
+            <li><img src="resource/images/skill_7.png" alt=""></li>
+            <li><img src="resource/images/skill_8.png" alt=""></li>
+            <li><img src="resource/images/skill_9.png" alt=""></li>
+            <li><img src="resource/images/skill_10.png" alt=""></li>
+        </ul>
+    </div>
+</section>
+<section id="work" class="work">
+    <h2>Work Project</h2>
+    <div class="flex">
+        <div class="toggle-btn" data-nav-target="1">Project 1</div>
+        <div class="toggle-btn" data-nav-target="2">Project 2</div>
+        <div class="toggle-btn" data-nav-target="3">Project 3</div>
+        <div class="toggle-btn" data-nav-target="4">Project 4</div>
+    </div>
+
+    <div class="overlay" data-nav-id="1">
+        <a href="javascript:void(0)" class="closebtn">×</a>
+        <div class="overlay-content">
+            <h1>Project 1</h1>
+        </div>
+    </div>
+    <div class="overlay" data-nav-id="2">
+        <a href="javascript:void(0)" class="closebtn">×</a>
+        <div class="overlay-content">
+            <h1>Project 2</h1>
+        </div>
+    </div>
+    <div class="overlay" data-nav-id="3">
+        <a href="javascript:void(0)" class="closebtn">×</a>
+        <div class="overlay-content">
+            <h1>Project 3</h1>
+        </div>
+    </div>
+    <div class="overlay" data-nav-id="4">
+        <a href="javascript:void(0)" class="closebtn">×</a>
+        <div class="overlay-content">
+            <h1>Project 4</h1>
+        </div>
+    </div>
+</section>
+<section id="contact" class="contact">
+    <h2>CONTACT</h2>
+    <div class="mail_box">
+        <h3>포트폴리오가 마음에 드셨다면 메일을 보내주세요 :D</h3>
+        <input type="text" name="name" placeholder="성함을 입력해주세요.">
+        <input type="text" name="email" placeholder="메일 주소를 입력해주세요.">
+        <input type="text" name="phone" placeholder="연락처를 입력해주세요. (생략 가능)">
+        <textarea name="message" rows="5" placeholder="내용을 입력해주세요. "></textarea>
+        <input type="button" name="submit" class="btn white" value="메일 보내기"/>
+    </div>
+</section>
+<footer>
+    <p> @ portfolio 2024-2-22 KimDaSol</p>
+</footer>
+</body>
+</html>
